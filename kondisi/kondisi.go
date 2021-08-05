@@ -6,11 +6,11 @@ func main() {
 	var1 := 1
 	var2 := 2
 
-	// if var1 != var2 {
-	// 	fmt.Println("benar")
-	// } else {
-	// 	fmt.Println("salah")
-	// }
+	if var1 != var2 {
+		fmt.Println("benar")
+	} else {
+		fmt.Println("salah")
+	}
 
 	switch var1 {
 	case 1:
@@ -25,4 +25,5 @@ func main() {
 	case (var2 != var1):
 		fmt.Println("benar")
 	}
+
 }
