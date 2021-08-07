@@ -8,6 +8,9 @@ func main() {
 	arr1[1] = 2
 	arr1[2] = 3
 
+	var arr7 = []int{}
+	arr7[0] = 20
+
 	arr2 := [3]int{1, 2, 3}
 
 	var arr3 = make([]int, 3)

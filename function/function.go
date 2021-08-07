@@ -12,6 +12,7 @@ func main() {
 
 	listNumber(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
 
+	// closure function
 	var closure1 = func(name string) string {
 		// fmt.Println("ini closure ", "hello", name)
 		return name
@@ -21,20 +22,24 @@ func main() {
 	fmt.Println("nama dari closure", nama)
 }
 
+// function with parameter
 func hello1(name string) {
 	fmt.Println("Hello", name)
 }
 
+// function with param and return value
 func hello2(name string) string {
 	// fmt.Println("Hello", name)
 	greetings := "hello " + name
 	return greetings
 }
 
+// function with params and multiple return value
 func hello3(name string, age int) (string, int) {
 	return name, age
 }
 
+// variadic function
 func listNumber(number ...int) {
 	fmt.Println(number)
 }
