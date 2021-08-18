@@ -28,6 +28,7 @@ func main() {
 
 	r.GET("/user", controller.GetUser)
 	r.POST("/user", controller.PostUser)
+	r.POST("/upload", controller.UploadFile)
 
 	port := ":9000"
 	r.Run(port) // listen and serve on 0.0.0.0:8080 (for windows "localhost:8080")
