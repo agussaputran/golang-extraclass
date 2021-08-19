@@ -1,10 +1,13 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"movie-review/connection"
 	"movie-review/controller"
+	"movie-review/middleware"
 	"movie-review/model"
+	"time"
 
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
@@ -18,6 +21,8 @@ func init() {
 }
 
 func main() {
+	fmt.Println(time.Now().UTC())
+	fmt.Println(time.Now().Unix())
 	connection.Connect()
 	db := controller.Gorm{DB: connection.GetConnection()}
 
@@ -30,11 +35,15 @@ func main() {
 
 	r := gin.Default()
 
+	// auth
+	r.POST("/auth/register", db.Register)
+	r.POST("/auth/login", db.Login)
+
 	// movie
 	r.GET("/movie", db.GetAllMovie)
-	r.POST("/movie", db.PostMoview)
-	r.PATCH("/movie", db.UpdateMovie)
-	r.DELETE("/movie", db.DeleteMovie)
+	r.POST("/movie", middleware.AuthMiddleware, db.PostMoview)
+	r.PATCH("/movie", middleware.AuthMiddleware, db.UpdateMovie)
+	r.DELETE("/movie", middleware.AuthMiddleware, db.DeleteMovie)
 
 	// author
 
