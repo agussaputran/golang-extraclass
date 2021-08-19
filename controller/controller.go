@@ -1,9 +1,8 @@
 package controller
 
-import "movie-review/model"
+import "gorm.io/gorm"
 
 //
-type DB struct {
-	Movies  []model.Movie
-	Authors []model.Author
+type Gorm struct {
+	DB *gorm.DB // berisi koneksi db
 }
